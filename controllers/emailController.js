@@ -16,7 +16,7 @@ exports.sendEmail = (req, res) => {
 
     // Mail options
     let mailOptions = {
-        from: `"${name}" <${email}>`, 
+        from: `"${name}" <"${email}">`, 
         replyTo: "${email}",
         to: process.env.RECEIVER_EMAIL, 
         subject: subject, 
