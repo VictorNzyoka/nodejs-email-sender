@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 // Email sending logic
 exports.sendEmail = (req, res) => {
     const { name, email, subject, message } = req.body;
-    console.log(reg.body)
+    console.log(req.body);
 
     // Create a transporter with nodemailer
     let transporter = nodemailer.createTransport({
