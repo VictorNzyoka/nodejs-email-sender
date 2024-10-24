@@ -18,6 +18,10 @@ app.use(bodyParser.json());
 
 // Use email routes
 app.use('/api', emailRoutes);
+app.get('/', (req, res) => {
+    res.send("Hello World");
+});
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;
