@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 
 // Email sending logic
 exports.sendEmail = (req, res) => {
-    const { name, email, subject, message } = req.body;
+    const { name, email: senderEmail, subject, message } = req.body; 
     console.log(req.body);
 
     // Create a transporter with nodemailer
@@ -16,11 +16,11 @@ exports.sendEmail = (req, res) => {
 
     // Mail options
     let mailOptions = {
-        from: `"${name}" <"${email}">`, 
-        replyTo: "${email}",
+        from: `"${name}" <${senderEmail}>`, 
+        replyTo: senderEmail, 
         to: process.env.RECEIVER_EMAIL, 
         subject: subject, 
-        text: `Message from ${name} (${email}):\n\n${message}`, 
+        text: `Message from ${name} (${senderEmail}):\n\n${message}`, 
     };
 
     // Send the email
